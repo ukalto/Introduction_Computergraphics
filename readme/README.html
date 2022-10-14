@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="project-structure">Project Structure</h1>
+<p>The zip folder contains the following files and subfolders with the following purposes:</p>
+<pre class="hljs"><code><div>Task_X
+├── assets
+│   ├── shaders
+│   │   ├── texture.frag
+│   │   └── texture.vert
+│   ├── textures
+│   └── settings.ini
+├── ECG_Solution
+│   ├── cmake
+│   │   ├── GlobalSettings.cmake
+│   │   ├── LinuxDependencies.cmake
+│   │   └── SourcesList.cmake
+│   ├── src
+│   │   └── The actual sources where you implement your solutions...
+│   ├── CMakeLists.txt
+│   └── CMakePresets.json
+├── external
+│   ├── include
+│   ├── include_gli
+│   └── lib
+├── install_dependencies.sh
+├── README.html
+├── SubmissionTool.exe
+├── version.txt
+└── bin*
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Folder/File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Task_X</code></td>
+<td>The root of the assignment folder. <strong>Do NOT open this folder in your IDE!</strong></td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td>Contains the textures and shaders. <strong>The shaders might be relevant for your tasks and you might have to implement code here</strong></td>
+</tr>
+<tr>
+<td><code>ECG_Solution</code></td>
+<td><strong>Contains the project!</strong> Open <strong>THIS</strong> folder in your IDE and not the <code>Task_X</code> folder.</td>
+</tr>
+<tr>
+<td><code>ECG_Solution/CMakeLists.txt</code></td>
+<td>This is the <strong>project's root configuration</strong> which can be loaded by Visual Studio, CLion or any other IDE of your choice (but beware we only tested it using the former two!) This can roughly be compared to a <code>.vcxproj</code> or <code>.sln</code> file</td>
+</tr>
+<tr>
+<td><code>ECG_Solution/CMakePresets.json</code></td>
+<td>This contains machine-dependent configuration presets as well as compiler-selection and configuration types (i.e. <code>Debug</code> vs. <code>Release</code>). <strong>You have to use this configuration!</strong> How is explained in detail below.</td>
+</tr>
+<tr>
+<td><code>ECG_Solution/cmake</code></td>
+<td>Contains additional helper files for CMake <strong>but also the sources list</strong>, meaning if you add new <code>.cpp</code> or <code>.h</code> files to your project, **you will also have to add them to <code>SourcesList.cmake</code>!</td>
+</tr>
+<tr>
+<td><code>ECG_Solution/src</code></td>
+<td>Contains the C sources of the project. Besides the shaders, this is the only other place where <strong>your implementations will go</strong>.</td>
+</tr>
+<tr>
+<td><code>external</code></td>
+<td>Contains bundled library binaries and include directories of additional dependencies. You probably need not care about this folder.</td>
+</tr>
+<tr>
+<td><code>install_dependencies.sh</code></td>
+<td><strong>Only for Linux users:</strong> You can run this script on your computer (under your own responsibility!) to automatically install all required packages, assuming your system runs on Ubuntu or a similar distribution with the <code>apt</code> package manager: Please carefully assess the script before running it and verify that you really want the commands to be executed. <strong>BEWARE that the script modifies your installed graphics drivers by installing alternative, proprietary ones!</strong> (This is needed on Linux systems in order to compile and run Vulkan applications) After that, you should have everything you need to be able to compile and run the project on Linux.</td>
+</tr>
+<tr>
+<td><code>SubmissionTool.exe</code></td>
+<td>This tool collects your code and creates a zip file for upload. <strong>Might be deprecated</strong></td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>This folder will be generated the first time the project is compiled and the executables will land here.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="step-by-step-project-setup">Step by Step Project Setup</h1>
+<h2 id="windows">Windows</h2>
+<p><strong>Note that we only tested this using <code>Visual Studio Community 2022 (64-bit), Version 17.2.6</code> on <code>Windows 10</code> with a <code>CMake 3.24</code> installation!</strong></p>
+<p>For both, Visual Studio AND CLion, you need to install Visual Studio with the following packages:<br>
+<img src="images/vs_installation_components.png" alt="Visual Studio Packages 1">
+<img src="images/vs_installation_components_2.png" alt="Visual Studio Packages 2">
+<img src="images/vs_installation_components_3.png" alt="Visual Studio Packages 3"></p>
+<h3 id="visual-studio">Visual Studio</h3>
+<ol>
+<li>Open Visual Studio 2022 and select <code>Open a local folder</code>, this setting is for CMake projects.<br>
+<img src="images/visual_studio_open_folder.png" alt="Visual Studio Open Project"></li>
+<li>Navigate to your <code>Task_X/ECG_Solution</code> folder and select <code>ECG_Solution</code> to open it. The contained <code>CMakeLists.txt</code> will automatically be used by Visual Studio to load the project and the CMake configuration process is started immediately.</li>
+<li>The CMake output should be visible automatically and should look like this, containing the line <code>1&gt; CMake generation finished.</code><br>
+<img src="images/visual_studio_cmake_config_success.png" alt="Visual Studio CMake Config Success"></li>
+<li>Now your Navigation Bar in Visual Studio should look like this.<br>
+<img src="images/visual_studio_startup_item_not_selected.png" alt="Visual Studio Pre Select Startup Item">
+Here you need to select <code>ECG_Solution.exe</code>:<br>
+<img src="images/visual_studio_startup_item_selected.png" alt="Visual Studio Post Select Startup Item"></li>
+<li>If you want to switch between <code>Debug</code> and <code>Release</code> mode, you have to find the right drop-down menu which provides this setting. Only one of the 3 <code>Debug</code> dropdown menus is the correct one:<br>
+<img src="images/visual_studio_startup_item_switch_debug_release.png" alt="Visual Studio Switch Debug Release"></li>
+<li>Now a click on the green triangle should build and run the program successfully.</li>
+<li>Implement your tasks and upload the result.</li>
+</ol>
+<h3 id="clion">CLion</h3>
+<ol>
+<li>Install Visual Studio with the packages from the screenshots above (yes this is needed because we use the Visual Studio Compiler, MSVC, instead of MinGW).</li>
+<li>Open CLion and then open the folder <code>Task_X/ECG_Solution</code>, the same way as described in the Visual Studio steps.</li>
+<li>CLion should immediately recognize the <code>CMakePresets.json</code> and prompt you with a popup window:
+First, delete the <code>Default</code> preset, then activate only the two presets <code>debug</code> and <code>release</code> so that your configuration looks like this and press <code>Apply</code>:<br>
+<img src="images/clion_cmake_presets_windows.png" alt="CLion Windows Presets">
+Note, that it might also look slightly different: Be careful to choose the presets where the <code>Build options</code> field is filled and not the other one.</li>
+<li>CLion should now automatically run a CMake configuration in the background and you should be able to see the results in the CMake message window. This window can be found under <code>View -&gt; Tool Windows -&gt; CMake</code>.
+A successful configuration should look like this:<br>
+<img src="images/clion_cmake_presets_windows_success.png" alt="Successful CMake configuration on Windows"></li>
+<li>You should now be able to simply choose from either <code>Debug</code> or <code>Release</code> in the dropdown menu of your CLion <code>Run/Debug configurations</code> on the top and press the green triangle to build and run the app.
+Note, that for <code>Task_0</code>, the program will crash on purpose because your implementation is needed before a visible window can be loaded.</li>
+<li>After you finished your task, you can compare your results with the provided reference solution.</li>
+<li>Upload your solution.</li>
+</ol>
+<h2 id="linux">Linux</h2>
+<p><strong>Note that we only tested this using <code>CLion 2022.2</code> with its bundled CMake (version <code>3.23.2</code>) on <code>Ubuntu 22.04</code></strong></p>
+<p>Carefully follow these steps in order to setup your environment to be able to build and run the assignments (steps 1 to 3 are only needed once):</p>
+<ol>
+<li>Only read, do not execute, the provided <code>install_dependencies.sh</code> script and verify that you really are OK with the changes in this script.
+If not, you might need to switch to a Windows computer, or find alternative solutions which fit your requirements.</li>
+<li>Run the provided <code>install_dependencies.sh</code> in a terminal. This might take a while.</li>
+<li>If the script was successful, the last lines in the terminal (i.e. the script's output) should look similar to this:<br>
+<img src="images/success_after_linux_install_script.png" alt="Successful Linux Installation Output">
+or you can run <code>vulkaninfo</code> manually to verify that Vulkan was installed successfully (which does not mean that every dependency is also installed correctly, but the script will fail immediately if errors occur).</li>
+<li>Now you can open the folder <code>ECG_Solution</code> with your IDE. We tested this step with CLion successfully, thus CLion is recommended. We cannot provide support for any other IDE on Linux.</li>
+<li>Assuming the project has been opened in CLion, the first step is to activate the correct CMake presets:
+CLion should immediately recognize the <code>CMakePresets.json</code> and prompt you with a popup window:
+First, delete the <code>Default</code> preset, then activate only the two presets <code>linux-debug</code> and <code>linux-release</code> so that your configuration looks like this and press <code>Apply</code>:<br>
+<img src="images/clion_cmake_presets_linux.png" alt="CLion Linux Presets">
+Note, that it might also look like this: Be careful to choose the presets where the <code>Build options</code> field is filled and not the other one:<br>
+<img src="images/clion_cmake_presets_linux2.png" alt="CLion Linux Presets Alternative Look"></li>
+<li>CLion should now automatically run a CMake configuration in the background and you should be able to see the results in the CMake message window. This window can be found under <code>View -&gt; Tool Windows -&gt; CMake</code>.
+A successful configuration should look like this:<br>
+<img src="images/clion_cmake_presets_linux_success.png" alt="Successful CMake configuration on Linux"></li>
+<li>You should now be able to simply choose from either <code>Debug</code> or <code>Release</code> in the dropdown menu of your CLion <code>Run/Debug configurations</code> on the top and press the green triangle to build and run the app.
+Note, that for <code>Task_0</code>, the program will crash on purpose because your implementation is needed before a visible window can be loaded.</li>
+<li>After you finished your task, you can compare your results with the provided reference solution. On linux, the executable might need to have additional rights before you can run the program:
+If <code>./ECG_Solution</code> in a terminal or double clicking the file does not work, please try <code>chmod 755 ./ECG_Solution</code> beforehand and then try one of the first two actions again.</li>
+<li>Upload your solution.</li>
+</ol>
+<h1 id="faq--common-erros">FAQ / Common Erros</h1>
+<ol>
+<li>When opening the project folder with Visual Studio it will automatically load the CMakePresets.json.
+However, there seem to be problems with some Visual Studio <strong>Extensions</strong>: Visual Studio might <strong>freeze</strong> on startup
+randomly if it tries to load CMake settings while some extensions are active.
+If this happens, all extensions which are not completely necessary should be deactivated in the
+<code>Extensions -&gt; Manage Extensions -&gt; Installed</code> menu.
+Then restart Visual Studio.</li>
+</ol>
+
+</body>
+</html>
